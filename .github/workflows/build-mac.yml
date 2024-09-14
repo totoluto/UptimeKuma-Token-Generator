@@ -1,9 +1,11 @@
-name: Build macOS App
+# .github/workflows/build-macos.yml
+
+name: Build macOS Executable
 
 on: [push]
 
 jobs:
-  build:
+  build-macos:
     runs-on: macos-latest
 
     steps:
@@ -11,7 +13,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: '3.x'
 
@@ -20,12 +22,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install pyinstaller
 
-    - name: Build macOS App
+    - name: Build macOS Executable
       run: |
-        pyinstaller --onefile --windowed your_script_name.py
+        pyinstaller --onefile --windowed uptime_kuma_token.py
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
+    - name: Upload macOS Executable
+      uses: actions/upload-artifact@v3
       with:
         name: macos-app
-        path: dist/your_script_name.app
+        path: dist/uptime_kuma_token.app
