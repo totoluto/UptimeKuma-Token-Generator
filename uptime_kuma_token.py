@@ -81,8 +81,8 @@ def copy_to_clipboard():
 
 # GUI Setup using Tkinter
 root = tk.Tk()
-root.title("Uptime Kuma Login")
-root.geometry("400x300")
+root.title("Uptime Kuma Token Generator")
+root.geometry("500x400")
 
 tk.Label(root, text="Uptime Kuma URL:").pack(pady=10)
 url_entry = tk.Entry(root)
